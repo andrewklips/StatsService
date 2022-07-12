@@ -34,7 +34,35 @@ public class StatsServiceTest {
         long actual = service.maxSales(sales);
         long expected = 9;
         assertEquals(expected, actual);
+    }
 
+    @Test //минимальные продажи
+    public void testMinMonth() {
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        StatsService service = new StatsService();
 
+        long actual = service.minSales(sales);
+        long expected = 9;
+        assertEquals(expected, actual);
+    }
+
+    @Test //Кол-во месяцев, в которых продажи были ниже среднего
+    public void testBelowAvg() {
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        StatsService service = new StatsService();
+
+        long actual = service.countBelowAvg(sales);
+        long expected = 5;
+        assertEquals(expected, actual);
+    }
+
+    @Test //Кол-во месяцев, в которых продажи были выше среднего
+    public void testAboveAvg() {
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        StatsService service = new StatsService();
+
+        long actual = service.countAboveAvg(sales);
+        long expected = 5;
+        assertEquals(expected, actual);
     }
 }
